@@ -80,6 +80,20 @@
 .port img {
   padding-top: 10%;
 }
+.portfolio-projects {
+  display: table;
+  margin: 0 auto;
+  }
+  .portfolio-projects ul {
+    list-style: none;
+    margin-left: 0;
+    margin-right: 0;
+    }
+    .portfolio-projects li {
+      display: inline-table;
+      float: none;
+}
+
 img {
   display: block;
   max-width: 100%;
