@@ -61,7 +61,7 @@
 	}
 
 	if ( function_exists( 'add_image_size' ) ) {
-		add_image_size( 'portfolio', 300, 300 );
+		add_image_size( 'portfolio', 250, 250 );
 		add_image_size( 'blog', 250, 150 );
 	}
 

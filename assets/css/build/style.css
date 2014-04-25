@@ -78,8 +78,41 @@
   padding: 0;
 }
 .port img {
-  padding-top: 10%;
+  width: 100%;
+  margin-top: 7.5%;
 }
+.portfolio-projects {
+
+}
+#projects {
+  margin: 0;
+  padding: 0;
+}
+#projects li {
+  float: left;
+  list-style: none;
+}
+.item-project {
+  position: relative;
+  overflow: hidden;
+}
+.item-project .project-name {
+  position: relative;
+  z-index: 2;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #000;
+  background-color: #fff;
+}
+.item-project .project-name p {
+  margin: 0;
+  padding-top: 2.5%;
+  margin-left: 5%;
+}
+
 img {
   display: block;
   max-width: 100%;
