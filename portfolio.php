@@ -8,7 +8,7 @@ Template Name: Portfolio
 
 <div class="row">
 	<div class="portfolio-projects">
-		<ul>
+		<ul id="projects">
 
 			<?php
 				$wp_query_portfolio = new WP_Query();
@@ -21,12 +21,14 @@ Template Name: Portfolio
 				$wp_query_portfolio->the_post();
 			?>
 
-			<li class="col-xs-4 col-md-4"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
-				<div class="caption">
+			<li class="item-project col-xs-4 col-md-3">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
+				<a class="project-name">
 					<p><?php the_title(); ?></p>
 					<p><?php exclude_post_categories('49'); ?></p>
-				</div>
+				</a>
 			</li>
+
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 			<?php else: endif; ?>
