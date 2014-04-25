@@ -10,19 +10,23 @@
 			$wp_query->the_post();
 		?>
 
-	<div class="col-xs-8 col-md-3">
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
-		<div class="caption">
-			<p><?php the_title(); ?></p>
-			<p><?php exclude_post_categories('49'); ?></p>
-		</div>
-	</div>
+		<li class="item-project col-xs-4 col-md-3">
+			<div class="project-container">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
+			<a class="project-name">
+				<p><?php the_title(); ?></p>
+				<p><?php exclude_post_categories('49'); ?></p>
+			</a>
+			</div>
+		</li>
 
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		<?php else: endif; ?>
+
 </div>
 
+<section class="front-content">
 <div class="row">
 	<h1>Recent Blog Posts</h1>
 
@@ -46,5 +50,6 @@
 		<?php else: endif; ?>
 
 </div>
+</section>
 
 <?php get_footer(); ?>
