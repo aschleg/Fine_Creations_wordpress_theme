@@ -81,8 +81,11 @@
   width: 100%;
   margin-top: 7.5%;
 }
-.portfolio-projects {
-
+.project-container {
+  border-bottom: 1px solid #000;
+}
+.project-container:hover {
+  border-bottom: 1px solid red;
 }
 #projects {
   margin: 0;
@@ -104,7 +107,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
-  border-bottom: 1px solid #000;
   background-color: #fff;
 }
 .item-project .project-name p {
@@ -112,7 +114,12 @@
   padding-top: 2.5%;
   margin-left: 5%;
 }
-
+.item-project .project-name a p:hover {
+  text-decoration: none;
+}
+.front-content {
+  margin-top: 10%;
+}
 img {
   display: block;
   max-width: 100%;
