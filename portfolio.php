@@ -21,13 +21,12 @@ Template Name: Portfolio
 		?>
 
 		<li class="item-project col-xs-4 col-md-3">
-			<div class="project-container">
-			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
-			<a class="project-name">
+			<a class="hover-wrap" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?>
+			</a>
+			<a class="project-name" href="<?php the_permalink(); ?>">
 				<p><?php the_title(); ?></p>
 				<p><?php exclude_post_categories('49'); ?></p>
 			</a>
-			</div>
 		</li>
 
 		<?php endwhile; ?>

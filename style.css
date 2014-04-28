@@ -45,17 +45,6 @@
 #sidebar {
 	list-style-type: none;
 }
-
-.caption {
-	border-bottom: 1px solid #000;
-	background-color: #fff;
-  padding-top: 2%;
-}
-.caption p {
-  margin-left: 5%;
-  margin-top: 0;
-}
-
 .navbar {
 	padding-top: 1%;
 	padding-bottom: 1%;
@@ -81,12 +70,11 @@
   width: 100%;
   margin-top: 7.5%;
 }
-.project-container {
-  border-bottom: 1px solid #000;
+
+#projects img {
+  width: 100%;
 }
-.project-container:hover {
-  border-bottom: 1px solid red;
-}
+
 #projects {
   margin: 0;
   padding: 0;
@@ -99,21 +87,10 @@
   position: relative;
   overflow: hidden;
 }
-.item-project .project-name {
-  position: relative;
-  z-index: 2;
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #fff;
-}
 .item-project .project-name p {
   margin: 0;
   padding-top: 2.5%;
   margin-left: 5%;
-}
-.item-project .project-name a p:hover {
-  text-decoration: none;
 }
 .front-content {
   margin-top: 10%;
@@ -125,12 +102,39 @@ img {
 }
 .article img {
   float: left;
-  display: inline-block;
   margin-right: 2.5%;
+}
+/*   Styles to get global site-color */
+
+
+
+.item-project .project-name {
+  position: relative;
+  z-index: 2;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  -moz-transition: all 0.25s ease-in-out 0s;
+  -o-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+}
+
+.item-project:hover .project-name,
+.item-project .project-name:hover {
+  border-bottom-color: #F1433F;
 }
 
 body {
 	padding-top: 12.5%;
+}
+
+p a {
+  text-decoration: none;
 }
 
 h1 {
