@@ -2,7 +2,7 @@
 
 <div class="row">
 	<h1>Recent Projects</h1>
-
+	<ul id="projects">
 		<?php
 			$wp_query = new WP_Query( array( 'category_name' => 'portfolio', 'posts_per_page' => 4 ) );
 			if( $wp_query->have_posts() ) :
@@ -10,20 +10,21 @@
 			$wp_query->the_post();
 		?>
 
-		<li class="item-project col-xs-4 col-md-3">
-			<div class="project-container">
-			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
-			<a class="project-name">
+		<li class="project col-xs-4 col-md-3">
+			<a class="wrap-overlay" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?>
+				<div class="overlay"></div>
+			</a>
+			<a class="project-name" href="<?php the_permalink(); ?>">
 				<p><?php the_title(); ?></p>
 				<p><?php exclude_post_categories('49'); ?></p>
 			</a>
-			</div>
 		</li>
 
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		<?php else: endif; ?>
 
+	</ul>
 </div>
 
 <section class="front-content">
