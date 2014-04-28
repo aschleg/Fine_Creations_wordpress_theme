@@ -66,15 +66,10 @@
   margin: 0;
   padding: 0;
 }
-.port img {
-  width: 100%;
-  margin-top: 7.5%;
-}
 
 #projects img {
   width: 100%;
 }
-
 #projects {
   margin: 0;
   padding: 0;
@@ -83,11 +78,18 @@
   float: left;
   list-style: none;
 }
-.item-project {
+.project {
   position: relative;
   overflow: hidden;
+  padding-top: 5%;
 }
-.item-project .project-name p {
+.project .wrap-overlay {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+.project .project-name p {
   margin: 0;
   padding-top: 2.5%;
   margin-left: 5%;
@@ -100,15 +102,9 @@ img {
   max-width: 100%;
   height: auto;
 }
-.article img {
-  float: left;
-  margin-right: 2.5%;
-}
 /*   Styles to get global site-color */
 
-
-
-.item-project .project-name {
+.project .project-name {
   position: relative;
   z-index: 2;
   display: block;
@@ -122,10 +118,32 @@ img {
   transition: all 0.25s ease-in-out 0s;
 }
 
-.item-project:hover .project-name,
-.item-project .project-name:hover {
+.project .wrap-overlay .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: rgb(231, 76, 60);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+}
+.project .wrap-overlay:hover .overlay,
+.project .wrap-overlay:active .overlay,
+.project .wrap-overlay:focus .overlay {
+  border-width: 10px;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+.project:hover .project-name,
+.project .project-name:hover {
   border-bottom-color: #F1433F;
 }
+
+/*End Global Page Style elements */
 
 body {
 	padding-top: 12.5%;

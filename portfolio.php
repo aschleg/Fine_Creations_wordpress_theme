@@ -20,8 +20,9 @@ Template Name: Portfolio
 			$wp_query_portfolio->the_post();
 		?>
 
-		<li class="item-project col-xs-4 col-md-3">
-			<a class="hover-wrap" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?>
+		<li class="project col-xs-4 col-md-3">
+			<a class="wrap-overlay" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?>
+				<div class="overlay"></div>
 			</a>
 			<a class="project-name" href="<?php the_permalink(); ?>">
 				<p><?php the_title(); ?></p>
