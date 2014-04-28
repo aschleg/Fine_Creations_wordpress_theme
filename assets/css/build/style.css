@@ -45,17 +45,6 @@
 #sidebar {
 	list-style-type: none;
 }
-
-.caption {
-	border-bottom: 1px solid #000;
-	background-color: #fff;
-  padding-top: 2%;
-}
-.caption p {
-  margin-left: 5%;
-  margin-top: 0;
-}
-
 .navbar {
 	padding-top: 1%;
 	padding-bottom: 1%;
@@ -77,15 +66,9 @@
   margin: 0;
   padding: 0;
 }
-.port img {
+
+#projects img {
   width: 100%;
-  margin-top: 7.5%;
-}
-.project-container {
-  border-bottom: 1px solid #000;
-}
-.project-container:hover {
-  border-bottom: 1px solid red;
 }
 #projects {
   margin: 0;
@@ -95,27 +78,21 @@
   float: left;
   list-style: none;
 }
-.item-project {
+.project {
   position: relative;
   overflow: hidden;
+  padding-top: 5%;
 }
-.item-project .project-name {
+.project .wrap-overlay {
   position: relative;
-  z-index: 2;
   display: block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  overflow: hidden;
   width: 100%;
-  background-color: #fff;
 }
-.item-project .project-name p {
+.project .project-name p {
   margin: 0;
   padding-top: 2.5%;
   margin-left: 5%;
-}
-.item-project .project-name a p:hover {
-  text-decoration: none;
 }
 .front-content {
   margin-top: 10%;
@@ -125,14 +102,55 @@ img {
   max-width: 100%;
   height: auto;
 }
-.article img {
-  float: left;
-  display: inline-block;
-  margin-right: 2.5%;
+/*   Styles to get global site-color */
+
+.project .project-name {
+  position: relative;
+  z-index: 2;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
 }
+
+.project .wrap-overlay .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: rgb(231, 76, 60);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+}
+.project .wrap-overlay:hover .overlay,
+.project .wrap-overlay:active .overlay,
+.project .wrap-overlay:focus .overlay {
+  border-width: 10px;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+.project:hover .project-name,
+.project .project-name:hover {
+  border-bottom-color: #F1433F;
+}
+
+/*End Global Page Style elements */
 
 body {
 	padding-top: 12.5%;
+}
+
+p a {
+  text-decoration: none;
 }
 
 h1 {
