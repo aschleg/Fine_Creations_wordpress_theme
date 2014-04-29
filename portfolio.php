@@ -3,10 +3,16 @@
 Template Name: Portfolio
 */
 ?>
+
 <section class="port">
 <?php get_header(); ?>
 
 <div class="row">
+
+	<ul class="js-isotope" data-isotope-options='{ "itemSelector": ".project" }'>
+
+	</ul>
+
 	<ul id="projects">
 
 		<?php

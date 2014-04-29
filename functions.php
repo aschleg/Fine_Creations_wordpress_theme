@@ -6,8 +6,15 @@
 
 	function finecreations_add_scripts() {
 		wp_enqueue_script('jquery');
-		wp_register_script( 'add-custom-js', get_template_directory_uri() . '/assets/js/build/production.js', array('jquery') );
-		wp_enqueue_script( 'add-custom-js' );
+		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.js', array('jquery'), '', true );
+		wp_register_script( 'js-isotope', get_template_directory_uri() . '/assets/js/plugins/isotope.js', array('jquery'), '', true );
+		
+		if (is_page_template('portfolio.php') ) {
+			wp_enqueue_script('js-isotope');
+		}
+
+		wp_enqueue_script( 'production-js' );
+
 	}
 	add_action( 'wp_enqueue_scripts', 'finecreations_add_scripts' );
 

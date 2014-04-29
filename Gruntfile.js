@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
 		concat: {
 			dist: {
-				src:  'assets/js/bootstrap.js',
+				src:  ['assets/js/bootstrap.js', 'assets/js/isotope.js'],
 				dest: 'assets/js/build/production.js',
 			}
 		},
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 		autoprefixer: {
 			dist: {
 				files: {
-					'assets/css/build/style.css': 'style.css'
+					'style.css': 'style.css'
 				}
 			}
 		},
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 				tasks: ['autoprefixer', 'cssmin', 'ftpush'],
 			},
 			js: {
-				files: ['assets/js'],
+				files: ['assets/js/*.js'],
 				tasks: ['concat', 'uglify', 'ftpush'],
 			},
 			options: {
