@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
 		concat: {
 			dist: {
-				src:  ['assets/js/bootstrap.js', 'assets/js/isotope.js'],
+				src:  ['assets/js/bootstrap.js', 'assets/js/custom.js'],
 				dest: 'assets/js/build/production.js',
 			}
 		},
