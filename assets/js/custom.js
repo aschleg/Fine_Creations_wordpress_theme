@@ -1,59 +1,57 @@
-var $j = jQuery.noConflict();
+jQuery(function($){
 
-(function($){
- 
-  var $container = $('#projects'),
- 
-      // create a clone that will be used for measuring container width
-      $containerProxy = $container.clone().empty().css({ visibility: 'hidden' });
- 
-  $container.after( $containerProxy );
- 
-    // get the first item to use for measuring columnWidth
-  var $item = $container.find('.project').eq(0);
-  $container.imagesLoaded(function(){
-  $(window).smartresize( function() {
- 
-    // calculate columnWidth
-    var colWidth = Math.floor( $containerProxy.width() / 4 ); // Change this number to your desired amount of columns
- 
-    // set width of container based on columnWidth
-    $container.css({
-        width: colWidth * 4 // Change this number to your desired amount of columns
-    })
-    .isotope({
- 
-      // disable automatic resizing when window is resized
-      resizable: false,
- 
-      // set columnWidth option for masonry
-      masonry: {
-        columnWidth: colWidth
-      }
-    });
- 
-    // trigger smartresize for first time
-  }).smartresize();
-   });
- 
-// filter items when filter link is clicked
-$('#filter a').click(function(){
-$('#filter a.active').removeClass('active');
-var selector = $(this).attr('data-filter');
-$container.isotope({ filter: selector, animationEngine : "css" });
-$(this).addClass('active');
-return false;
- 
+  'use strict';
+
+  var finecreations = window.finecreations || {};
+
+      finecreations.portfolio = function(){
+          if($('#portfolio').length > 0){
+              var $container = $('#portfolio');
+
+              $container.imagesLoaded(function() {
+                  $container.isotope({
+                      animationEngine: 'best-available',
+                      itemSelector: '.project'
+                  });
+              });
+
+              $(window).smartresize(function() {
+                  $('#portfolio').isotope('reLayout');
+              });
+
+              var $optionSets = $('#filters .projectnav'),
+                  $optionLinks = $optionSets.find('a');
+
+                $optionLinks.click(function(){
+                    var $this = $(this);
+                    if( $this.hasClass('selected') ) {
+                        return false;
+                    }
+                    var $optionSet = $this.parents('.projectnav');
+                        $optionSet.find('.selected').removeClass('selected');
+                        $this.addClass('selected');
+
+                    var options = {},
+                        key = $optionSet.attr('data-option-key'),
+                        value = $this.attr('data-option-value');
+
+                    value = value === 'false' ? false : value;
+                    options[ key ] = value;
+
+                    if( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+                        changeLayoutMode( $this, options );
+                    }
+                    else {
+                        $container.isotope( options );
+                    }
+                    return false;
+              });
+          }
+      };
+
+      $(document).ready(function(){
+          finecreations.portfolio();
+      });
 });
  
-}) (jQuery);
 
-var $container = $j('#projects');
-  $container.imagesLoaded( function() {
-    $container.isotope({
-      itemSelector: '.project',
-      layoutMode: 'fitRows',
-      animationEngine: 'best-available',
-      columnWidth: $container.width() / 4
-    });
-  });

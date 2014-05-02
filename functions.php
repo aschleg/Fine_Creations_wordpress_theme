@@ -4,18 +4,20 @@
 	
 	add_filter('show_admin_bar', '__return_false');
 
+	if (!is_admin() ) add_action( 'wp_enqueue_scripts', 'finecreations_add_scripts', 11 );
 	function finecreations_add_scripts() {
+
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", false, null);
-		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.js', array(), '' );
-		wp_register_script( 'js-isotope', get_template_directory_uri() . '/assets/js/plugins/isotope.js', array(), '' );
+		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.js', array(), '', true );
+		wp_register_script( 'js-isotope', get_template_directory_uri() . '/assets/js/plugins/isotope.js', array('jquery'), '', true );
 		
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'js-isotope' );
 		wp_enqueue_script( 'production-js' );
 
 	}
-	add_action( 'wp_enqueue_scripts', 'finecreations_add_scripts' );
+	
 
 	function removeHeadLinks() {
 		remove_action('wp_head', 'rsd_link');
