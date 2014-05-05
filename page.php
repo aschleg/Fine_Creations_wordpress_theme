@@ -2,8 +2,7 @@
 
 <div class="row">
 
-	<div class="article col-md-9">
-
+	<div class="col-md-9">
 		<?php
 			$wp_query = new WP_Query();
 			$wp_query->query('category_name='.blog.'&paged='.$paged);
@@ -13,16 +12,16 @@
 			while( $wp_query->have_posts() ) :
 			$wp_query->the_post();
 		?>
-
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('blog'); ?></a>
+		<div class="col-md-12">
+		<a href="<?php the_permalink(); ?>" class="thumbnail"><?php the_post_thumbnail('blog'); ?></a>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 		<p><?php the_excerpt(__ ('(more...)')); ?></p>
+
+		</div>
 		<hr>
-		
-		<?php endwhile; ?>
+				<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		<?php else: endif; ?>
-
 	</div>
 
 	<div class="col-md-3">

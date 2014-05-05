@@ -113,10 +113,20 @@ img {
   max-width: 100%;
   height: auto;
 }
-
+.thumbnail {
+  position: relative;
+  display: inline-block;
+  float: left;
+  max-height: 200px;
+}
+.attachment-blog {
+  max-width: 100%;
+  max-height: 100%;
+}
 a.project-name:hover {
   text-decoration: none;
 }
+
 /*   Styles to get global site-color */
 
 .project .project-name {
@@ -180,7 +190,7 @@ header a {
 }
 
 hr {
-  border-top: 1px dashed #f2f2f2;
+  border-top: 1.5px dotted #555;
 }
 
 

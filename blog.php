@@ -7,7 +7,7 @@ Template Name: Blog
 <?php get_header(); ?>
 
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-9">
 
 		<?php
 			$wp_query = new WP_Query();
@@ -24,11 +24,11 @@ Template Name: Blog
 		<p><?php the_excerpt(__ ('(more...)')); ?></p>
 		
 		<?php endwhile; ?>
-
 		<?php wp_reset_postdata(); ?>
-
 		<?php else: endif; ?>
 	
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-3">
 		<?php get_sidebar(); ?>
+	</div>
+</div>

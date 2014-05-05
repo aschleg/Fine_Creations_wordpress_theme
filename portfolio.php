@@ -12,7 +12,7 @@ Template Name: Portfolio
 		<?php
 			$terms = get_terms('portfolio-categories');
 			$count = count($terms);
-				echo '<li><a href="#" title="" data-option-value="*" class="active">All</a></li>';
+				echo '<li><a href="#" title="" data-option-value="*">All</a></li>';
 			if ( $count > 0 ) {
 				foreach ( $terms as $term ) {
 					$termname = strtolower($term->name);
@@ -45,7 +45,7 @@ Template Name: Portfolio
 						$tax = '';
 					endif;
 
-					echo '<li class="project col-xs-4 col-md-3 all '. $tax .' isotope-item">';
+					echo '<li class="project col-xs-4 col-md-3 all '. $tax .'isotope-item">';
 					echo '<a class="wrap-overlay" href="'. get_permalink() .'">';
 					echo the_post_thumbnail('portfolio');
 					echo '<div class="overlay">';
@@ -57,9 +57,8 @@ Template Name: Portfolio
 					echo '</a>';
 					echo '</li>';
 
-				endwhile; 
-			?>
-
+			endwhile; ?>
+			
 		</ul>
 </div>
 </div>

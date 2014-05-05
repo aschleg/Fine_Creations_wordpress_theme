@@ -64,12 +64,12 @@
 
 	if ( function_exists( 'add_theme_support') ) {
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 200, 200 );
+		set_post_thumbnail_size( 300, 200 );
 	}
 
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'portfolio', 250, 250 );
-		add_image_size( 'blog', 250, 150 );
+		add_image_size( 'blog', 300, 200 );
 	}
 
 	if ( function_exists('register_sidebar')) {

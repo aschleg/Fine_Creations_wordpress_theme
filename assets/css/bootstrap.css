@@ -322,7 +322,6 @@ img {
   background-color: #ffffff;
   display: inline-block;
   max-width: 100%;
-  height: auto;
 }
 .img-circle {
   border-radius: 50%;
