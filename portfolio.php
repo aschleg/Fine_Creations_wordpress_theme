@@ -7,28 +7,29 @@ Template Name: Portfolio
 <?php get_header(); ?>
 
 <section class="port">
-<div class="row" id="filters">
-	<ul class="projectnav" data-option-key="filter">
+
+<div id="portfolio-filter" class="row">
+	<ul class="option-set">
 		<?php
 			$terms = get_terms('portfolio-categories');
 			$count = count($terms);
-				echo '<li><a href="#" title="" data-option-value="*">All</a></li>';
+				echo '<li><a class="active" href="#" data-filter="*">All</a></li>';
 			if ( $count > 0 ) {
 				foreach ( $terms as $term ) {
 					$termname = strtolower($term->name);
 					$termname = str_replace(' ', '-', $termname);
-					echo '<li><a href="#filter" title="" data-option-value=".'.$termname.'">'.$term->name.'</a><li>';
+					echo '<li><a href="#" data-filter=".'.$termname.'">'.$term->name.'</a><li>';
 				}
 			}
 		?>
 	</ul>
 </div>
 <div class="row">
-	<div class="portfolio" class="grid-portfolio isotope">
+	<div class="isotope">
 		<ul id="projects">
 
 			<?php
-				$args = array( 'post_type' => 'portfolio', 'posts_per_page' => 10 );
+				$args = array( 'post_type' => 'portfolio', 'posts_per_page' => -1 );
 				$wp_query_portfolio = new WP_Query( $args );
 					while( $wp_query_portfolio->have_posts() ) : $wp_query_portfolio->the_post();
 
@@ -45,7 +46,7 @@ Template Name: Portfolio
 						$tax = '';
 					endif;
 
-					echo '<li class="project col-xs-4 col-md-3 all '. $tax .'isotope-item">';
+					echo '<li class="project col-xs-12 col-sm-3 col-md-3 all '. $tax .'">';
 					echo '<a class="wrap-overlay" href="'. get_permalink() .'">';
 					echo the_post_thumbnail('portfolio');
 					echo '<div class="overlay">';
@@ -60,8 +61,10 @@ Template Name: Portfolio
 			endwhile; ?>
 			
 		</ul>
+	</div>
 </div>
-</div>
+
 </section>
 
 <?php get_footer(); ?>
+

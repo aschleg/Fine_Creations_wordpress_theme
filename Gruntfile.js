@@ -4,22 +4,27 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		concat: {
-			dist: {
-				src:  ['assets/js/bootstrap.js', 'assets/js/custom.js'],
+			plugins: {
+				src: 'assets/js/plugins/*.js',
+				dest: 'assets/js/plugins/plugins.js',
+			},
+			custom: {
+				src:  'assets/js/custom.js',
 				dest: 'assets/js/build/production.js',
 			}
 		},
 		uglify: {
-			build: {
+			plugins: {
+				src: 'assets/js/plugins/plugins.js',
+				dest: 'assets/js/build/plugins.min.js'
+			},
+			bootstrap: {
+				src: 'assets/js/bootstrap.js',
+				dest: 'assets/js/build/bootstrap.min.js'
+			},
+			custom: {
 				src:  'assets/js/build/production.js',
 				dest: 'assets/js/build/production.min.js'
-			}
-		},
-		autoprefixer: {
-			dist: {
-				files: {
-					'style.css': 'style.css'
-				}
 			}
 		},
 		cssmin: {
@@ -34,6 +39,13 @@ module.exports = function(grunt) {
 				src: ['*.css'],
 				dest: 'assets/css/build/',
 				ext: '.min.css'
+			}
+		},
+		autoprefixer: {
+			dist: {
+				files: {
+					'style.css': 'style.css'
+				}
 			}
 		},
 		ftpush: {
