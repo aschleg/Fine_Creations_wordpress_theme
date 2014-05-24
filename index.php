@@ -1,56 +1,84 @@
+
 <?php get_header(); ?>
 
-<div class="row">
-	<h1>Recent Projects</h1>
-	<ul id="projects">
-		<?php
-			$wp_query = new WP_Query( array( 'category_name' => 'portfolio', 'posts_per_page' => 4 ) );
-			if( $wp_query->have_posts() ) :
-			while( $wp_query->have_posts() ) :
-			$wp_query->the_post();
-		?>
+<div id="recent-projects">
+	<div class="container">
+		<div class="row">
+			<h1 class="wow fadeInRightBig">Recent Projects</h1>
 
-		<li class="project col-xs-4 col-md-3">
-			<a class="wrap-overlay" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?>
-				<div class="overlay"></div>
-			</a>
-			<a class="project-name" href="<?php the_permalink(); ?>">
-				<p><?php the_title(); ?></p>
-				<p><?php exclude_post_categories('49'); ?></p>
-			</a>
-		</li>
+			<ul id="projects">
 
-		<?php endwhile; ?>
-		<?php wp_reset_postdata(); ?>
-		<?php else: endif; ?>
+				<?php
+					
+					$args = array( 'post_type' => 'portfolio', 'posts_per_page' => 4 );
+					$wp_query_portfolio = new WP_Query( $args );
+						while( $wp_query_portfolio->have_posts() ) : $wp_query_portfolio->the_post();
 
-	</ul>
-</div>
+					$terms = get_the_terms( $post->ID, 'portfolio-categories' );
+						if( $terms && ! is_wp_error( $terms ) ) :
+							$links = array();
+							foreach ( $terms as $term ) {
+								$links[] = $term->name;
+							}
 
-<section class="front-content">
-<div class="row">
-	<h1>Recent Blog Posts</h1>
+							$tax_links = join( " ", str_replace(' ', '-', $links));
+							$tax = strtolower($tax_links);
+						else :
+							$tax = '';
+						endif;
 
-		<?php
-			$wp_query_blog = new WP_Query( array( 'category_name' => 'blog', 'posts_per_page' => 4 ) );
-			if( $wp_query_blog->have_posts() ) :
-			while( $wp_query_blog->have_posts() ) :
-			$wp_query_blog->the_post();
-		?>
+						echo '<li class="project col-xs-12 col-sm-6 col-md-3 wow fadeInUp">';
+						echo '<a class="wrap-overlay" href="'. get_permalink() .'">';
+						echo the_post_thumbnail('portfolio');
+						echo '<div class="overlay">';
+						echo '</div>';
+						echo '</a>';
+						echo '<a class="project-name" href="'. get_permalink() .'">';
+						echo '<p>'. get_the_title() .'</p>'; 
+						echo '<p>'. ucfirst($tax) .'</p>';
+						echo '</a>';
+						echo '</li>';
 
-	<div class="col-xs-8 col-md-3">
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio'); ?></a>
-		<div class="caption">
-			<p><?php the_title(); ?></p>
-			<p><?php exclude_post_categories('25'); ?></p>
+				endwhile; ?>
+				
+			</ul>
 		</div>
 	</div>
-
-		<?php endwhile; ?>
-		<?php wp_reset_postdata(); ?>
-		<?php else: endif; ?>
-
 </div>
-</section>
+
+<div id="front-recent-posts">
+	<div class="container">
+		<div class="row posts">
+
+				<?php
+					$wp_query_blog = new WP_Query( array( 'category_name' => 'blog', 'posts_per_page' => 3 ) );
+					if( $wp_query_blog->have_posts() ) :
+					while( $wp_query_blog->have_posts() ) :
+					$wp_query_blog->the_post();
+				?>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 wow fadeInUp">
+					<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
+					<p><?php the_excerpt(); ?></p>
+				</div>
+
+
+			<!--<li class="project col-xs-12 col-sm-6 col-md-4 wow fadeInRightBig">
+				<a href="<?php the_permalink(); ?>" class="wrap-overlay"><?php the_post_thumbnail('front-blog-thumb'); ?>
+					<div class="overlay"></div>
+				</a>
+				<a class="blog-excerpt" href="<?php the_permalink(); ?>">
+					<p><?php the_title(); ?></p>
+					<small><?php the_excerpt(); ?></small>
+				</a>
+			</li>-->
+
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+				<?php else: endif; ?>
+
+		</div>
+	</div>
+</div>
 
 <?php get_footer(); ?>

@@ -55,7 +55,7 @@
 </head>
 	<header class="header <?php if (is_page()) { echo "page-header"; }?>" role="banner">
 
-		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar navbar-default" role="navigation">
 		  	<div class="container">
 			  	<div class="navbar-header">
 				  	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -76,18 +76,17 @@
 					</a>
 			  	</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<div class="center">
-						<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php wp_list_pages(array('title_li' => '')); ?></li>
+				  		<ul class="dropdown-menu">
 							<li><?php wp_list_pages(array('title_li' => '')); ?></li>
-					  		<ul class="dropdown-menu">
-								<li><?php wp_list_pages(array('title_li' => '')); ?></li>
-					  		</ul>
-					  	</li>
-					  	</ul>
-				  	</div>
+				  		</ul>
+				  	</li>
+				  	</ul>
 			 	</div>
 			</div>
 		</div>
 	</header>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
+

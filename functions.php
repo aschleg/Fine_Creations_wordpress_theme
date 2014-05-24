@@ -57,7 +57,7 @@
 	}
 
 	function post_excerpt_length($length) {
-		return 30;
+		return 50;
 	}
 	add_filter('excerpt_length', 'post_excerpt_length');
 
@@ -68,12 +68,14 @@
 
 	if ( function_exists( 'add_theme_support') ) {
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 300, 200 );
+		set_post_thumbnail_size( 800, 600 );
 	}
 
 	if ( function_exists( 'add_image_size' ) ) {
-		add_image_size( 'portfolio', 250, 250 );
-		add_image_size( 'blog', 300, 200 );
+		add_image_size( 'portfolio', 350, 350 );
+		add_image_size( 'front-blog-thumb', 400, 400 );
+		add_image_size( 'blog', 500, 300 );
+		add_image_size( 'article', 800, 600 );
 	}
 
 	if ( function_exists('register_sidebar')) {

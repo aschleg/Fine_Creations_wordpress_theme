@@ -1,15 +1,96 @@
 @import url('assets/css/build/bootstrap-comb.min.css');
 
+/***************************************FONTS***************************************/
+
 @font-face {
-  font-family: "icons";
-  src:url("assets/fonts/icons.eot");
-  src:url("assets/fonts/icons.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/icons.woff") format("woff"),
-    url("assets/fonts/icons.ttf") format("truetype"),
-    url("assets/fonts/icons.svg#icons") format("svg");
+  font-family: 'icons';
+  src:url('assets/fonts/icons.eot');
+  src:url('assets/fonts/icons.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/icons.woff') format('woff'),
+    url('assets/fonts/icons.ttf') format('truetype'),
+    url('assets/fonts/icons.svg#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+    font-family: 'varelaregular';
+    src: url('assets/fonts/varela-regular-webfont.eot');
+    src: url('assets/fonts/varela-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/varela-regular-webfont.woff') format('woff'),
+         url('assets/fonts/varela-regular-webfont.ttf') format('truetype'),
+         url('assets/fonts/varela-regular-webfont.svg#varelaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'varela_roundregular';
+    src: url('assets/fonts/varelaround-regular-webfont.eot');
+    src: url('assets/fonts/varelaround-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/varelaround-regular-webfont.woff') format('woff'),
+         url('assets/fonts/varelaround-regular-webfont.ttf') format('truetype'),
+         url('assets/fonts/varelaround-regular-webfont.svg#varela_roundregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'latoregular';
+    src: url('assets/fonts/lato-regular-webfont.eot');
+    src: url('assets/fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/lato-regular-webfont.woff') format('woff'),
+         url('assets/fonts/lato-regular-webfont.ttf') format('truetype'),
+         url('assets/fonts/lato-regular-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p {
+  font-family: 'latoregular';
+  font-size: 1.25em;
+  color: rgb(75, 75, 87);
+  line-height: 30px; 
+}
+
+li {
+  font-family: 'latoregular', sans-serif;
+  font-size: 1em;
+  color: rgb(75, 75, 87);
+}
+li a {
+  font-family: 'varela_roundregular';
+  color: rgb(75, 75, 87);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'varela_roundregular';
+  margin: 0;
+  color: #2F343B;
+}
+
+h2 a {
+  font-family: 'varela_roundregular';
+  color: #2F343B;
+}
+
+.nav li {
+  font-family: 'latoregular';
+  font-size: 1em;
+}
+.navbar-nav > li > a {
+  text-shadow: none;
+  color: #E3CDA4;
+}
+.navbar {
+  margin-bottom: 0;
+}
+.sidebar li a {
+  font-family: 'latoregular', sans-serif;
+  font-size: 1.1em;
+  color: rgb(75, 75, 87);
+  line-height: 20px;
+}
+
+/***************************************SOCIAL ICONS***************************************/
+
 [data-icon]:before {
   font-family: "icons" !important;
   content: attr(data-icon);
@@ -24,7 +105,8 @@
 }
 .socialicons {
 	font-family: 'icons' !important;
-  display: table;
+  display: inline;
+  padding-left: 2.5%;
 }
 .socialicons span {
 	position: absolute;
@@ -34,25 +116,8 @@
 .socialicons a {
   display: inline-block;
 	font-size: 2em;
-	color: #000;
-}
-
-.center {
-	display: table;
-	margin: 0 auto;
-}
-
-#sidebar {
-	list-style-type: none;
-}
-.navbar {
-	padding-top: 1%;
-	padding-bottom: 1%;
-	border-bottom: 1px solid #f2f2f2;
-}
-
-.nav li {
-	display: inline;
+  color: #E3CDA4;
+  border: 1.5px solid #E3CDA4;
 }
 
 .group:after {
@@ -60,11 +125,197 @@
   display: table;
   clear: both; 
 }
+/***************************************GLOBAL***************************************/
 
-.port {
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
+
+/***************************************FRONT PAGE***************************************/
+#recent-projects {
+  background-color: whitesmoke;
+  padding-bottom: 5%;
+}
+.project .blog-excerpt {
+  position: relative;
+  z-index: 2;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #686E75;
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+}
+
+.blog-excerpt p {
+  font-size: 1em;
+}
+#front-recent-posts {
+  padding-top: 5%;
+  padding-bottom: 2%;
+  background-color: ghostwhite;
+}
+#front-page {
+  background-color: lavenderblush;
+}
+
+.posts .col-md-4 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+h6 {
+  font-size: 2em;
+}
+h6 a {
+  color: #2F343B;
+}
+h6 a:hover {
+  color: #E74C3C;
+}
+
+/***************************************PORTFOLIO***************************************/
+
+li a {
+  font-size: 1.25em;
+  color: rgb(75, 75, 87);
+}
+
+.project-name p {
+  font-size: 1em;
+}
+
+/***************************************BLOG***************************************/
+
+.article img {
+  margin: 0 auto;
+}
+.article p {
+  text-align: justify;
+}
+h1 {
+  padding-top: 5%;
+  font-size: 3.5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+h2 a {
+  font-size: 1.5em;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+h3 {
+  padding-top: 5%;
+  padding-bottom: 5%; 
+  font-size: 2.5em;
+  text-align: center;
+}
+.thumbnail a.wrap-overlay {
+  margin-bottom: 5%;
+}
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+/***************************************FOOTER***************************************/
+
+footer {
+  background-color: #703030;
+  padding-top: 5%;
+  padding-bottom: 3%;
+}
+
+/***************************************CONTACT***************************************/
+
+#contact-page {
+  background-color: whitesmoke;
+}
+input.wpcf7-form-control {
+  border: none;
+}
+textarea.wpcf7-form-control {
+  border: none;
+}
+
+/***************************************SIDEBAR***************************************/
+
+.sidebar {
+  display: none;
+}
+
+@media(min-width: 768px) {
+  .sidebar {
+    list-style-type: none;
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: whitesmoke;
+  }
+}
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+h4 {
+  font-size: 1.75em;
+  margin-top: 20px;
+}
+
+/***************************************COMMENTS***************************************/
+
+h5 {
+  font-size: 2em;
+  padding-top: 5%;
+}
+label {
+  font-family: 'latoregular';
+  font-size: 1.25em;
+  color: rgb(75, 75, 87);
+  font-weight: none; 
+}
+.subscribe-label {
+  font-size: 1em;
+}
+textarea {
+  border: none;
+}
+.comments {
+  background-color: whitesmoke;
+}
+
+/***************************************HEADER***************************************/
+
+header {
+  background-color: #2F343B;
+}
+.navbar {
+	padding-top: 1%;
+}
+
+.nav li {
+	display: inline;
+}
+
+.hidden {
+  display: none;
 }
 
 #projects img {
@@ -77,6 +328,9 @@
 #projects li {
   float: left;
   list-style: none;
+}
+#projects li.hidden {
+  display: none;
 }
 .project {
   position: relative;
@@ -94,37 +348,56 @@
   padding-top: 2.5%;
   margin-left: 5%;
 }
+.project .blog-excerpt p {
+  margin: 0;
+  padding-top: 2.5%;
+  margin-left: 5%;
+}
 #portfolio-filter {
   display: table;
   margin: 0 auto;
 }
-ul.option-set {
+ul.filter {
+  padding-top: 10%;
   list-style: none;
-  width: 100%;
 }
-ul.option-set li {
+ul.filter li {
   display: inline;
+  padding-right: 5px;
 }
-.front-content {
-  margin-top: 10%;
-}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 .thumbnail {
+  width: 100%;
   position: relative;
-  display: inline-block;
-  float: left;
-  max-height: 200px;
+  overflow: hidden;
 }
-.attachment-blog {
-  max-width: 100%;
-  max-height: 100%;
-}
+
 a.project-name:hover {
   text-decoration: none;
+}
+
+/***************************************BACK TO TOP***************************************/
+
+#scrolltop {
+  position: fixed;
+  bottom: 200px;
+  margin-right: -50px;
+  left: 20px;
+}
+
+#scrolltop span {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin-bottom: 7px;
+  background: #ddd url('assets/icons/backtotop_arrow.png') no-repeat center center;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 /*   Styles to get global site-color */
@@ -138,7 +411,7 @@ a.project-name:hover {
   box-sizing: border-box;
   width: 100%;
   background-color: #fff;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #686E75;
   -webkit-transition: all 0.25s ease-in-out 0s;
   transition: all 0.25s ease-in-out 0s;
 }
@@ -150,12 +423,13 @@ a.project-name:hover {
   right: 0;
   bottom: 0;
   display: block;
-  background: rgb(231, 76, 60);
+  background: #E74C3C;
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transition: all 0.25s ease-in-out 0s;
   transition: all 0.25s ease-in-out 0s;
 }
+
 .project .wrap-overlay:hover .overlay,
 .project .wrap-overlay:active .overlay,
 .project .wrap-overlay:focus .overlay {
@@ -165,23 +439,60 @@ a.project-name:hover {
 }
 .project:hover .project-name,
 .project .project-name:hover {
-  border-bottom-color: #F1433F;
+  border-bottom-color: #E74C3C;
+}
+.project:hover .blog-excerpt,
+.project .blog-excerpt:hover {
+  border-bottom-color: #E74C3C;
+}
+.thumbnail .wrap-overlay {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.thumbnail .wrap-overlay .overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: block;
+  background: #E74C3C;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.25s ease-in-out 0s;
+  transition: all 0.25s ease-in-out 0s;
+}
+
+.thumbnail .wrap-overlay:hover .overlay,
+.thumbnail .wrap-overlay:active .overlay,
+.thumbnail .wrap-overlay:focus .overlay {
+  border-width: 10px;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+
+.socialicons a:hover {
+  color: #C77966;
+  border-color: #C77966;
+}
+
+a:hover {
+  color: #E74C3C;
+  text-decoration: none;
+}
+
+.sidebar li a:hover {
+  text-decoration: none;
+  color: #E74C3C;
 }
 
 /*End Global Page Style elements */
 
-body {
-	padding-top: 12.5%;
-}
-
 p a {
   text-decoration: none;
-}
-
-h1 {
-	font-size: 1.5em;
-	font-family: sans-serif;
-  margin-top: 0;
 }
 
 header a {
@@ -192,6 +503,13 @@ header a {
 hr {
   border-top: 1.5px dotted #555;
 }
+
+.post-content {
+  margin-bottom: 2.5%;
+  margin-top: 2.5%;
+}
+
+/***************************************ISOTOPE***************************************/
 
 .isotope-item {
     z-index: 2;
@@ -227,4 +545,128 @@ hr {
 .isotope .isotope-item.no-transition {
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
+}
+
+.animate {
+  opacity: 0;
+}
+
+
+/***************************************ANIMATE.CSS***************************************/
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+    -ms-transform: translateX(2000px);
+    transform: translateX(2000px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
 }

@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
 		concat: {
 			plugins: {
-				src: 'assets/js/plugins/*.js',
+				src: ['assets/js/plugins/isotope.js', 'assets/js/plugins/imagesloaded.pkgd.min.js', 'assets/js/plugins/wow.min.js'],
 				dest: 'assets/js/plugins/plugins.js',
 			},
 			custom: {
@@ -30,22 +30,15 @@ module.exports = function(grunt) {
 		cssmin: {
 			combine : {
 				files: {
-					'assets/css/build/bootstrap-comb.min.css': ['assets/css/bootstrap.css', 'assets/css/bootstrap-theme.css']
+					'assets/css/build/bootstrap-comb.css': ['assets/css/bootstrap.css', 'assets/css/bootstrap-theme.css']
 				}
 			},
 			minify: {
 				expand: true,
 				cwd: 'assets/css/build/',
-				src: ['*.css'],
+				src: ['bootstrap-comb.css'],
 				dest: 'assets/css/build/',
 				ext: '.min.css'
-			}
-		},
-		autoprefixer: {
-			dist: {
-				files: {
-					'style.css': 'style.css'
-				}
 			}
 		},
 		ftpush: {
@@ -61,11 +54,6 @@ module.exports = function(grunt) {
 				simple: true
 			}
 		},
-		browser_sync: {
-			files: {
-				src: '/style.css'
-			}
-		},
 		watch: {
 			php: {
 				files: ['./*.php', 'global/*.php'],
@@ -77,10 +65,10 @@ module.exports = function(grunt) {
 			},
 			src: {
 				files: ['assets/css/*.css', 'style.css'],
-				tasks: ['autoprefixer', 'cssmin', 'ftpush'],
+				tasks: ['cssmin', 'ftpush'],
 			},
 			js: {
-				files: ['assets/js/*.js'],
+				files: ['assets/js/bootstrap.js', 'assets/js/custom.js'],
 				tasks: ['concat', 'uglify', 'ftpush'],
 			},
 			options: {
@@ -96,7 +84,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-ftpush');
+	grunt.loadNpmTasks('grunt-uncss');
 
-	grunt.registerTask('default', ['concat', 'uglify', 'autoprefixer', 'cssmin', 'ftpush', 'watch']);
+	grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'ftpush', 'watch']);
 
 };

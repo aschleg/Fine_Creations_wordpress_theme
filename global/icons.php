@@ -2,7 +2,7 @@
 	$fc_settings = get_option( 'fc_options', $fc_options );
 ?>
 
-<div class="socialicons group pull-right">
+<div class="socialicons group">
 	<?php if( $fc_settings['twitter_url'] != '' ) : ?>
 	<a href="<?php echo $fc_settings['twitter_url']; ?>" title="Twitter"><i aria-hidden="true" data-icon="f"></i><span>Twitter</span></a>
 	<?php endif; ?>
