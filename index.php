@@ -1,6 +1,28 @@
-
 <?php get_header(); ?>
 
+<div id="introduction">
+		<div class="row">
+			<div class="col-md-12 skills">
+
+			<?php
+				$args = array( 'post_type' => 'skills', 'posts_per_page' => -1 );
+				$skills = new WP_Query( $args );
+					while( $skills->have_posts() ) : $skills->the_post();
+
+					echo '<div class="col-sm-6 col-md-4 skill">';
+					echo the_post_thumbnail('skills');
+					echo '<div class="skilltext">';
+					echo '<p>'. get_the_title() .'</p>';
+					echo '<p>'. get_the_content() .'</p>';
+					echo '</div>';
+					echo '</div>';
+
+					endwhile; 
+			?>
+
+			</div>
+		</div>
+</div>	
 <div id="recent-projects">
 	<div class="container">
 		<div class="row">
