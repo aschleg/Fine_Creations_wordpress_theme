@@ -11,19 +11,20 @@
 	?>
 
 </footer>
+</div>
 
 <?php wp_footer(); ?>
 <script type="text/javascript">
 
-	var wow = new WOW(
-	{
-		boxClass: 'wow',
-		animateClass: 'animated',
-		offset: 0,
-		mobile: false
-	}
-);
-wow.init();
+				var wow = new WOW(
+					{
+					boxClass: 'wow',
+					animateClass: 'animated',
+					offset: 10,
+					mobile: false
+					}
+				);
+				wow.init();
 
 </script>
 

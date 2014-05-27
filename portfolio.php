@@ -6,9 +6,9 @@ Template Name: Portfolio
 
 <?php get_header(); ?>
 
-<div id="recent-projects">
+<div id="portfolio-nav">
 <div class="container">
-	<h1 id="faderight">Portfolio</h1>
+	<h1 class="wow fadeInBigRight">Portfolio</h1>
 
 	<div id="portfolio-filter" class="row">
 		<ul class="filter">
@@ -27,6 +27,8 @@ Template Name: Portfolio
 		</ul>
 	</div>
 </div>
+</div>
+<div id="portfolio">
 <div class="row">
 	<div class="container">
 		<div class="isotope">

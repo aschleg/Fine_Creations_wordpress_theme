@@ -1,18 +1,37 @@
 <?php get_header(); ?>
 
 <div id="introduction">
+	<div class="container">
+		<div class="row">
+			<h1 class="wow bounceIn">Welcome!</h1>
+			<h2 class="wow fadeInLeftBig">
+				My name is Aaron and I live for seeking the truth in data and creating things that help people be more awesome.
+				I'm gold in some trades and silver in others.
+				I post projects relating to Excel, Python, web design and more.
+			</h2>
+			<h2 class="wow fadeInRightBig">
+				Check me out on <span><a href="https://twitter.com/Aaron_Schlegel">Twitter</a></span>, <span><a href="https://github.com/aschleg">Github</a></span>
+				and <span><a href="https://www.linkedin.com/in/aaronschlegel">Linkedin</a></span>
+			</h2>
+		</div>
+	</div>
+</div>
+
+<div id="skillsection">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 skills">
+				<h1 class="wow fadeInRightBig" href="#skills">What I Like Doing</h1>
 
 			<?php
 				$args = array( 'post_type' => 'skills', 'posts_per_page' => -1 );
 				$skills = new WP_Query( $args );
 					while( $skills->have_posts() ) : $skills->the_post();
 
-					echo '<div class="col-sm-6 col-md-4 skill">';
+					echo '<div class="col-sm-6 col-md-4 skill wow fadeInUp">';
 					echo the_post_thumbnail('skills');
 					echo '<div class="skilltext">';
-					echo '<p>'. get_the_title() .'</p>';
+					echo '<p class="skillname">'. get_the_title() .'</p>';
 					echo '<p>'. get_the_content() .'</p>';
 					echo '</div>';
 					echo '</div>';
@@ -22,6 +41,7 @@
 
 			</div>
 		</div>
+	</div>
 </div>	
 <div id="recent-projects">
 	<div class="container">
@@ -71,6 +91,8 @@
 <div id="front-recent-posts">
 	<div class="container">
 		<div class="row posts">
+			<div class="col-md-12">
+			<h1 class="wow fadeInRightBig">Latest Posts</h1>
 
 				<?php
 					$wp_query_blog = new WP_Query( array( 'category_name' => 'blog', 'posts_per_page' => 3 ) );
@@ -79,26 +101,15 @@
 					$wp_query_blog->the_post();
 				?>
 
-				<div class="col-xs-12 col-sm-12 col-md-12 wow fadeInUp">
+				<div class="col-xs-12 col-sm-12 col-md-12 wow fadeInLeft">
 					<h6><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 					<p><?php the_excerpt(); ?></p>
 				</div>
 
-
-			<!--<li class="project col-xs-12 col-sm-6 col-md-4 wow fadeInRightBig">
-				<a href="<?php the_permalink(); ?>" class="wrap-overlay"><?php the_post_thumbnail('front-blog-thumb'); ?>
-					<div class="overlay"></div>
-				</a>
-				<a class="blog-excerpt" href="<?php the_permalink(); ?>">
-					<p><?php the_title(); ?></p>
-					<small><?php the_excerpt(); ?></small>
-				</a>
-			</li>-->
-
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 				<?php else: endif; ?>
-
+			</div>
 		</div>
 	</div>
 </div>
