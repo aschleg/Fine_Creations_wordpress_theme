@@ -70,7 +70,7 @@
 
 					<?php if( $fc_settings['logo_url'] != '' ) : ?>
 						<a href="<?php echo get_option('home'); ?>/" class="navbar-brand">
-							<img src="<?php echo $fc_settings['logo_url']; ?>" alt="<?php bloginfo('name'); ?> center">
+							<img src="<?php echo $fc_settings['logo_url']; ?>" alt="<?php bloginfo('name'); ?>">
 					<?php endif; ?>
 
 					</a>

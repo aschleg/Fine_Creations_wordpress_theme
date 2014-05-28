@@ -12,6 +12,8 @@ $fc_options = array(
 	'flickr_url' => '',
 	'pinterest_url' => '',
 	'google_url' => '',
+	'intro' => '',
+	'checkout' => '',
 	);
 
 if ( is_admin() ):
@@ -51,14 +53,14 @@ if ( is_admin() ):
 
 				<table class="form-table">
 
-					<tr valign="top"><th scope="row"><label for="logo_url">Logo URL: </label></th>
+					<tr valign="top"><th scope="row"><label for="logo_url">Logo URL:</label></th>
 						<td>
 							<input id="logo_url" name="fc_options[logo_url]" type="text" placeholder="http://" value="<?php esc_attr_e($settings['logo_url']); ?>" />
 							<p>Upload logo via <a href="<?php echo get_option('siteurl'); ?>/wp-admin/media-new.php">Add new image</a></p>
 						</td>
 					</tr>
 
-					<tr valign="top"><th scope="row"><label for="site-color">Site Color: </label></th>
+					<tr valign="top"><th scope="row"><label for="site-color">Site Color:</label></th>
 						<td>
 							<input id="site_color" name="fc_options[site-color]" type="text" placeholder="blue" value="<?php esc_attr_e($settings['site-color']); ?>" />
 						</td>
@@ -117,6 +119,18 @@ if ( is_admin() ):
 							<input id="google" name="fc_options[google_url]" type="text" placeholder="http://" value="<?php esc_attr_e($settings['google_url']); ?>" />
 						</td>
 					</tr>
+
+					<tr valign="top"><th scope="row"><label for="intro">Site Description: </label></th>
+						<td>
+							<textarea id="intro" name="fc_options[intro]" cols="50" rows="10" type="text" placeholder="Description" value="<?php esc_textarea($settings['intro']); ?>" /></textarea>
+						</td>
+					</tr>
+					<tr valign="top"><th scope="row"><label for="checkout">Find me here: </label></th>
+						<td>
+							<textarea id="checkout" class="large-text" name="fc_options[checkout]" cols="50" rows="10" type="text" value="<?php esc_textarea($settings['checkout']); ?>" /></textarea>
+						</td>
+					</tr>
+					<p>Note: wrap content in span tags to change words to white background with blue text</p>
 
 				</table>
 
