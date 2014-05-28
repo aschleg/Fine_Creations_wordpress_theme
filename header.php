@@ -70,12 +70,27 @@
 
 					<?php if( $fc_settings['logo_url'] != '' ) : ?>
 						<a href="<?php echo get_option('home'); ?>/" class="navbar-brand">
-							<img src="<?php echo $fc_settings['logo_url']; ?>" alt="<?php bloginfo('name'); ?> center">
+							<img src="<?php echo $fc_settings['logo_url']; ?>" alt="<?php bloginfo('name'); ?>">
 					<?php endif; ?>
 
 					</a>
 			  	</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+			  	<?php
+			  		wp_nav_menu( array(
+			  			'menu' 				=> 'primary',
+			  			'theme_location'	=> 'primary',
+			  			'depth' 			=> 2,
+			  			'container'			=> 'div',
+			  			'container_class'	=> 'collapse navbar-collapse',
+			  			'container_id'		=> 'bs-example-navbar-collapse-1',
+			  			'menu_class'		=> 'nav navbar-nav navbar-right',
+			  			'fallback_cb'		=> 'wp_bootstrap_navwalker::navwalker',
+			  			'walker'			=> new wp_bootstrap_navwalker())
+			  		);
+			  	?>
+
+				<!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><?php wp_list_pages(array('title_li' => '')); ?></li>
 				  		<ul class="dropdown-menu">
@@ -83,7 +98,7 @@
 				  		</ul>
 				  	</li>
 				  	</ul>
-			 	</div>
+			 	</div>-->
 			</div>
 		</div>
 	</header>

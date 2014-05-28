@@ -1,6 +1,7 @@
 <?php
 
 	require_once ( get_stylesheet_directory() . '/theme-options.php' );
+	require_once ( get_stylesheet_directory() . '/global/wp_bootstrap_navwalker.php' );
 
 	add_filter('show_admin_bar', '__return_false');
 
@@ -35,10 +36,13 @@
 	}
 	add_filter( 'upload_mimes', 'cc_mime_types' );
 
-	function your_function_name() {
-		add_theme_support( 'menus' );
-	}
-	add_action( 'after_setup_theme', 'your_function_name' );
+
+	add_action( 'after_setup_theme', 'menu_setup' );
+	if( !function_exists( 'menu_setup' ) ):
+		function menu_setup() {
+			register_nav_menu( 'main_nav', __( 'Primary navigation', 'fc' ) );
+		}
+	endif;
 
 	function exclude_post_categories($excl=''){
 	   $categories = get_the_category($post->ID);

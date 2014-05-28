@@ -272,6 +272,7 @@ h6 a:hover {
   margin-top: 10px;
   font-size: 1.2em;
   line-height: 20px;
+  text-align: justify;
 }
 .skillicon {
   display: block;
@@ -488,6 +489,10 @@ ul.filter li {
 }
 ul.filter li a {
   color: #ECF0F1;
+}
+ul.filter li a:hover {
+  background-color: #ECF0F1;
+  color: #3498DB;
 }
 img {
   display: block;

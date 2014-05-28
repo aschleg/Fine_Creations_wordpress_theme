@@ -4,14 +4,25 @@
 	<div class="container">
 		<div class="row">
 			<h1 class="wow bounceIn">Welcome!</h1>
+
+			  	<?php global $fc_options;
+					$fc_settings = get_option( 'fc_options', $fc_options );
+				?>
+				<?php if( $fc_settings['intro'] != '' ) : ?>
+
 			<h2 class="wow fadeInLeftBig">
-				My name is Aaron and I live for seeking the truth in data and creating things that help people be more awesome.
-				I'm gold in some trades and silver in others.
-				I post projects relating to Excel, Python, web design and more.
+				<?php echo $fc_settings['intro']; ?>
+				<?php endif; ?>
 			</h2>
+
+			  	<?php global $fc_options;
+					$fc_settings = get_option( 'fc_options', $fc_options );
+				?>
+				<?php if( $fc_settings['checkout'] != '' ) : ?>
+
 			<h2 class="wow fadeInRightBig">
-				Check me out on <span><a href="https://twitter.com/Aaron_Schlegel">Twitter</a></span>, <span><a href="https://github.com/aschleg">Github</a></span>
-				and <span><a href="https://www.linkedin.com/in/aaronschlegel">Linkedin</a></span>
+				<?php echo $fc_settings['checkout']; ?>
+				<?php endif; ?>
 			</h2>
 		</div>
 	</div>
