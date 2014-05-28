@@ -90,15 +90,6 @@
 			  		);
 			  	?>
 
-				<!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><?php wp_list_pages(array('title_li' => '')); ?></li>
-				  		<ul class="dropdown-menu">
-							<li><?php wp_list_pages(array('title_li' => '')); ?></li>
-				  		</ul>
-				  	</li>
-				  	</ul>
-			 	</div>-->
 			</div>
 		</div>
 	</header>
