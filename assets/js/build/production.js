@@ -1,12 +1,5 @@
 jQuery(document).ready(function($) {
 
-/***************************************ANIMATION***************************************/
-
-
-
-/***************************************SCROLL***************************************/
-
-
 /***************************************ISOTOPE***************************************/
 	
 	var $container = $('.isotope').imagesLoaded(function() {
@@ -46,5 +39,11 @@ jQuery(document).ready(function($) {
 			return false;
 		});
 	});
+
+/***************************************FANCYBOX***************************************/
+
+	/*$(".fancybox").fancybox();
+	$("a[href$='.jpg'], a[href=$='.png'], a[href$='.jpeg'], a[href$='.gif']").fancybox();
+	$(".gallery a[href$='.jpg'], .gallery a[href$='.png'], .gallery a[href$='.jpeg'], .gallery a[href$='.gif']").attr('rel', 'gallery').fancybox();*/
 
 });

@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
 		concat: {
 			plugins: {
-				src: ['assets/js/plugins/isotope.js', 'assets/js/plugins/imagesloaded.pkgd.min.js', 'assets/js/plugins/wow.min.js'],
+				src: ['assets/js/plugins/isotope.js', 'assets/js/plugins/imagesloaded.pkgd.min.js', 'assets/js/plugins/wow.min.js', 'assets/js/plugins/jquery.fancybox.pack.js'],
 				dest: 'assets/js/plugins/plugins.js',
 			},
 			custom: {
