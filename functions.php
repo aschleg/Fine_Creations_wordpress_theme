@@ -2,6 +2,7 @@
 
 	require_once ( get_stylesheet_directory() . '/theme-options.php' );
 	require_once ( get_stylesheet_directory() . '/global/wp_bootstrap_navwalker.php' );
+	require_once ( get_stylesheet_directory() . '/global/class-tgm-plugin-activation.php' );
 
 	add_filter('show_admin_bar', '__return_false');
 
@@ -12,14 +13,14 @@
 		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, null);
 		wp_enqueue_script( 'jquery' );
 
-		wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/build/bootstrap.min.js', array( 'jquery' ), '', all );
+		wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/build/bootstrap.min.js', array( 'jquery' ), '' );
 		wp_enqueue_script( 'bootstrap' );
 
 		wp_deregister_script( 'plugins');
-		wp_register_script( 'plugins', get_template_directory_uri() . '/assets/js/build/plugins.min.js', array('jquery'), '', all );
+		wp_register_script( 'plugins', get_template_directory_uri() . '/assets/js/build/plugins.min.js', array( 'jquery' ), '' );
 		wp_enqueue_script( 'plugins');
 
-		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.min.js', array('jquery'), '', all );
+		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.min.js', array( 'jquery' ), '' );
 		wp_enqueue_script( 'production-js' );
 	}
 
@@ -217,5 +218,69 @@
 		);
 		register_taxonomy( 'skill_category', 'skill', $args );
 	}
+
+/************************************************PLUGIN ACTIVATION***************************************/
+
+/*
+ * @package    TGM-Plugin-Activation
+ * @subpackage Example
+ * @version    2.4.0
+ * @author     Thomas Griffin <thomasgriffinmedia.com>
+ * @author     Gary Jones <gamajo.com>
+ * @copyright  Copyright (c) 2014, Thomas Griffin
+ * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * @link       https://github.com/thomasgriffin/TGM-Plugin-Activation
+*/
+
+add_action( 'tgmpa_register', 'finecreations_register_required_plugins' );
+function finecreations_register_required_plugins() {
+
+	$plugins = array(
+		array(
+			'name'			=> 'Contact Form 7',
+			'slug'			=> 'contact-form-7',
+			'required'		=> false,
+		),
+		
+		array(
+			'name'			=> 'FancyBox for Wordpress',
+			'slug'			=> 'fancybox-for-wordpress',
+			'required'		=> false,
+		),
+	);
+
+	$config = array(
+        'id'           => 'tgmpa',
+        'default_path' => '',
+        'menu'         => 'tgmpa-install-plugins',
+        'has_notices'  => true,
+        'dismissable'  => true,
+        'dismiss_msg'  => '',
+        'is_automatic' => false,
+        'message'      => '',
+        'strings'      => array(
+            'page_title'                      => __( 'Install Required Plugins', 'tgmpa' ),
+            'menu_title'                      => __( 'Install Plugins', 'tgmpa' ),
+            'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ),
+            'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
+            'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'tgmpa' ),
+            'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'tgmpa' ),
+            'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'tgmpa' ),
+            'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'tgmpa' ),
+            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'tgmpa' ),
+            'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'tgmpa' ),
+            'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'tgmpa' ),
+            'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'tgmpa' ),
+            'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'tgmpa' ),
+            'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'tgmpa' ),
+            'return'                          => __( 'Return to Required Plugins Installer', 'tgmpa' ),
+            'plugin_activated'                => __( 'Plugin activated successfully.', 'tgmpa' ),
+            'complete'                        => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ),
+            'nag_type'                        => 'updated'
+        )
+    );
+
+	tgmpa( $plugins, $config );
+}
 
 ?>

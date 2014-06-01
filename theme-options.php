@@ -1,7 +1,7 @@
 <?php
 
 $fc_options = array(
-	'logo_url' => '',
+	'name' => '',
 	'site-color' => '',
 	'twitter_url' => '',
 	'facebook_url' => '',
@@ -14,6 +14,7 @@ $fc_options = array(
 	'google_url' => '',
 	'intro' => '',
 	'checkout' => '',
+	'contact' => '',
 	);
 
 if ( is_admin() ):
@@ -53,10 +54,9 @@ if ( is_admin() ):
 
 				<table class="form-table">
 
-					<tr valign="top"><th scope="row"><label for="logo_url">Logo URL:</label></th>
+					<tr valign="top"><th scope="row"><label for="logo_url">Name:</label></th>
 						<td>
-							<input id="logo_url" name="fc_options[logo_url]" type="text" placeholder="http://" value="<?php esc_attr_e($settings['logo_url']); ?>" />
-							<p>Upload logo via <a href="<?php echo get_option('siteurl'); ?>/wp-admin/media-new.php">Add new image</a></p>
+							<input id="name" name="fc_options[name]" type="text" placeholder="Name" value="<?php esc_attr_e($settings['name']); ?>" />
 						</td>
 					</tr>
 
@@ -122,16 +122,19 @@ if ( is_admin() ):
 
 					<tr valign="top"><th scope="row"><label for="intro">Site Description: </label></th>
 						<td>
-							<textarea id="intro" name="fc_options[intro]" cols="50" rows="10" type="text" placeholder="Description" value="<?php esc_textarea($settings['intro']); ?>" /></textarea>
+							<input id="intro" name="fc_options[intro]" cols="50" rows="20" type="text" placeholder="Description" value="<?php esc_attr_e($settings['intro']); ?>" />
 						</td>
 					</tr>
 					<tr valign="top"><th scope="row"><label for="checkout">Find me here: </label></th>
 						<td>
-							<textarea id="checkout" class="large-text" name="fc_options[checkout]" cols="50" rows="10" type="text" value="<?php esc_textarea($settings['checkout']); ?>" /></textarea>
+							<input id="checkout" class="large-text" name="fc_options[checkout]" cols="50" rows="20" type="text" value="<?php esc_attr_e($settings['checkout']); ?>" />
 						</td>
 					</tr>
-					<p>Note: wrap content in span tags to change words to white background with blue text</p>
-
+					<tr valign="top"><th scope="row"><label for="contact">Contact Page Header: </label></th>
+						<td>
+							<input id="contact" class="large-text" name="fc_options[contact]" cols="50" rows="20" type="text" value="<?php esc_attr_e($settings['contact']); ?>" />
+						</td>
+					</tr>
 				</table>
 
 				<p class="submit"><input type="submit" class="button-primary" value="Save Options" /></p>

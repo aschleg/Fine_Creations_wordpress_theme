@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 
 		concat: {
 			plugins: {
-				src: ['assets/js/plugins/isotope.js', 'assets/js/plugins/imagesloaded.pkgd.min.js', 'assets/js/plugins/wow.min.js'],
+				src: ['assets/js/plugins/isotope.js', 'assets/js/plugins/imagesloaded.pkgd.min.js', 'assets/js/plugins/wow.min.js', 'assets/js/plugins/jquery.fancybox.pack.js'],
 				dest: 'assets/js/plugins/plugins.js',
 			},
 			custom: {
@@ -30,15 +30,15 @@ module.exports = function(grunt) {
 		cssmin: {
 			combine : {
 				files: {
-					'assets/css/build/bootstrap-comb.css': ['assets/css/bootstrap.css', 'assets/css/bootstrap-theme.css']
+					'assets/css/build/style.css': ['assets/css/bootstrap.css', 'assets/css/bootstrap-theme.css', 'assets/css/custom.css']
 				}
 			},
 			minify: {
 				expand: true,
 				cwd: 'assets/css/build/',
-				src: ['bootstrap-comb.css'],
-				dest: 'assets/css/build/',
-				ext: '.min.css'
+				src: ['style.css'],
+				dest: './',
+				ext: '.css'
 			}
 		},
 		ftpush: {
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 				tasks: ['ftpush'],
 			},
 			src: {
-				files: ['assets/css/*.css', 'style.css'],
+				files: ['assets/css/*.css'],
 				tasks: ['cssmin', 'ftpush'],
 			},
 			js: {

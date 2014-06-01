@@ -20,7 +20,7 @@
 					{
 					boxClass: 'wow',
 					animateClass: 'animated',
-					offset: 10,
+					offset: 0,
 					mobile: false
 					}
 				);

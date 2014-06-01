@@ -64,6 +64,16 @@
 					  	<span class="icon-bar"></span>
 					  	<span class="icon-bar"></span>
 				  	</button>
+
+				  	<?php global $fc_options;
+						$fc_settings = get_option( 'fc_options', $fc_options );
+					?>
+
+					<?php if( $fc_settings['name'] != '' ) : ?>
+
+				  	<a class="navbar-brand" href="<?php echo home_url(); ?>"><?php echo $fc_settings['name']; ?></a>
+				  	<?php endif; ?>
+
 				  	<?php global $fc_options;
 						$fc_settings = get_option( 'fc_options', $fc_options );
 					?>
