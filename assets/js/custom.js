@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
 
 	$(function() {
 		$(window).scroll(function() {
-			if ($(this).scrollTop() > 800) {
+			if ($(this).scrollTop() > 1200) {
 				$('#scrolltop').fadeIn();
 			}
 			else {
@@ -39,14 +39,4 @@ jQuery(document).ready(function($) {
 			return false;
 		});
 	});
-<<<<<<< HEAD
-=======
-
-/***************************************FANCYBOX***************************************/
-
-	/*$(".fancybox").fancybox();
-	$("a[href$='.jpg'], a[href=$='.png'], a[href$='.jpeg'], a[href$='.gif']").fancybox();
-	$(".gallery a[href$='.jpg'], .gallery a[href$='.png'], .gallery a[href$='.jpeg'], .gallery a[href$='.gif']").attr('rel', 'gallery').fancybox();*/
-
->>>>>>> 803bb5eb65605b385f5cf9618057133f7b8c212e
 });

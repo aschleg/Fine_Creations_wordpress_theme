@@ -53,7 +53,7 @@
 	<?php wp_head(); ?>
 
 </head>
-	<header class="header <?php if (is_page()) { echo "page-header"; }?>" role="banner">
+	<header role="banner">
 
 		<div class="navbar navbar-default" role="navigation">
 		  	<div class="container">

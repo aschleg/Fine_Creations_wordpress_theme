@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="introduction">
+<div class="page-header">
 	<div class="container">
 		<div class="row">
 			<h1 class="wow bounceIn">Welcome!</h1>
@@ -28,7 +28,7 @@
 	</div>
 </div>
 
-<div id="skillsection">
+<div class="skillsection">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 skills">
@@ -99,7 +99,7 @@
 	</div>
 </div>
 
-<div id="front-recent-posts">
+<div class="front-recent-posts">
 	<div class="container">
 		<div class="row posts">
 			<div class="col-md-12">

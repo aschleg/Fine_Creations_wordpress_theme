@@ -6,8 +6,8 @@ Template Name: Contact
 
 <?php get_header(); ?>
 
-<div id="contact-page">
-	<div id="contact-page-intro">
+<div class="contact-page">
+	<div class="page-header">
 		<h1 class="wow fadeInRight">Get in Touch</h1>
 
 		<?php global $fc_options;

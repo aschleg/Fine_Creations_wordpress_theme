@@ -6,11 +6,11 @@ Template Name: Portfolio
 
 <?php get_header(); ?>
 
-<div id="portfolio-nav">
+<div class="page-header">
 <div class="container">
 	<h1 class="wow fadeInBigRight">Portfolio</h1>
 
-	<div id="portfolio-filter" class="row">
+	<div class="portfolio-filter" class="row">
 		<ul class="filter">
 			<?php
 				$terms = get_terms('portfolio-categories');
@@ -28,11 +28,11 @@ Template Name: Portfolio
 	</div>
 </div>
 </div>
-<div id="portfolio">
+<div class="portfolio">
 <div class="row">
 	<div class="container">
 		<div class="isotope">
-			<ul id="projects">
+			<ul class="projects">
 
 				<?php
 					$args = array( 'post_type' => 'portfolio', 'posts_per_page' => -1 );

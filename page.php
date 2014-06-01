@@ -18,9 +18,7 @@
 
 			<div class="post-content col-md-12">
 				<div class="thumbnail">
-					<a href="<?php the_permalink(); ?>" class="wrap-overlay"><?php the_post_thumbnail('blog'); ?>
-						<div class="overlay"></div>
-					</a>
+					<?php the_post_thumbnail('blog'); ?>
 				</div>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<p><?php the_excerpt(__ ('(more...)')); ?></p>
