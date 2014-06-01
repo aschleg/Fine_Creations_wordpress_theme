@@ -31,7 +31,7 @@
 <div class="skillsection">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12 skills">
+			<div class="col-md-12 skills clearfix">
 				<h1 class="wow fadeInRightBig" href="#skills">What I Like Doing</h1>
 
 			<?php
@@ -39,7 +39,7 @@
 				$skills = new WP_Query( $args );
 					while( $skills->have_posts() ) : $skills->the_post();
 
-					echo '<div class="col-sm-6 col-md-4 skill wow fadeInUp">';
+					echo '<div class="col-sm-6 col-md-4 clearfix skill wow fadeInUp">';
 					echo the_post_thumbnail('skills');
 					echo '<div class="skilltext">';
 					echo '<p class="skillname">'. get_the_title() .'</p>';
