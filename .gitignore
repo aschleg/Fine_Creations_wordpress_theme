@@ -2,3 +2,6 @@ $ cat .gitignore
 /assets/img
 /.ftppass
 /.grunt
+*bariol*
+
+
