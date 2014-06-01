@@ -17,10 +17,16 @@
 		wp_enqueue_script( 'bootstrap' );
 
 		wp_deregister_script( 'plugins');
+
 		wp_register_script( 'plugins', get_template_directory_uri() . '/assets/js/build/plugins.min.js', array( 'jquery' ), '' );
 		wp_enqueue_script( 'plugins');
 
 		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.min.js', array( 'jquery' ), '' );
+
+		wp_register_script( 'plugins', get_template_directory_uri() . '/assets/js/build/plugins.min.js', array( 'jquery' ), '', all );
+		wp_enqueue_script( 'plugins');
+
+		wp_register_script( 'production-js', get_template_directory_uri() . '/assets/js/build/production.min.js', array( 'jquery' ), '', all );
 		wp_enqueue_script( 'production-js' );
 	}
 
